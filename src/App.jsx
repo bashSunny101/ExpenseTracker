@@ -32,7 +32,7 @@ function App() {
       </div>
 
       <div className="flex-grow flex justify-center items-center">
-        <div className="p-4 w-96">
+        <div className="p-4 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3">
           <h2 className="text-xl font-semibold mb-4 text-blue-500">Add Expense</h2>
           <div className="mb-4">
             <label htmlFor="description" className="block font-semibold text-black">Description:</label>
@@ -70,7 +70,7 @@ function App() {
         </div>
       </div>
 
-      <div className="p-4">
+      <div className="p-4 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3">
         <h2 className="text-xl font-semibold mb-4 text-blue-500">Expense List</h2>
         <ul>
           {expenses.map((expense) => (
@@ -81,7 +81,7 @@ function App() {
         </ul>
       </div>
 
-      <div className="p-4">
+      <div className="p-4 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3">
         <h2 className="text-xl font-semibold text-blue-500">Total Expenses:</h2>
         <p className="text-black text-xl">${calculateTotal()}</p>
       </div>
