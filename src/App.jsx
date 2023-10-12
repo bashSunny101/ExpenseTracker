@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 
 function App() {
+
   const [expenses, setExpenses] = useState([]);
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
 
   const addExpense = () => {
+
     if (description && amount && date) {
+
       const newExpense = {
         id: expenses.length + 1,
         description,
@@ -18,14 +21,19 @@ function App() {
       setDescription("");
       setAmount("");
       setDate("");
+
     }
+
   };
 
   const calculateTotal = () => {
+
     return expenses.reduce((total, expense) => total + expense.amount, 0);
+
   };
 
   return (
+
     <div className="bg-gray-100 min-h-screen flex justify-center items-center">
       <div className="w-full max-w-md p-4 bg-white rounded shadow-md">
         <div className="text-center mb-4">
@@ -89,7 +97,9 @@ function App() {
         </div>
       </div>
     </div>
+
   );
+  
 }
 
 export default App;
