@@ -26,64 +26,67 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col">
-      <div className="bg-blue-500 p-4">
-        <h1 className="text-2xl font-bold text-center text-white">Expense Tracker</h1>
-      </div>
+    <div className="bg-gray-100 min-h-screen flex justify-center items-center">
+      <div className="w-full max-w-md p-4 bg-white rounded shadow-md">
+        <div className="text-center mb-4">
+          <h1 className="text-3xl font-bold text-blue-600">Expense Tracker</h1>
+        </div>
 
-      <div className="flex-grow flex justify-center items-center">
-        <div className="p-4 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3">
-          <h2 className="text-xl font-semibold mb-4 text-blue-500">Add Expense</h2>
+        <div className="p-4">
+          <h2 className="text-xl font-bold mb-4 text-blue-900">Add Expense</h2>
           <div className="mb-4">
-            <label htmlFor="description" className="block font-semibold text-black">Description:</label>
+            <label htmlFor="description" className="block text-gray-700 font-semibold mb-2">Description:</label>
             <input
               type="text"
               id="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="border rounded w-full p-2"
+              className="w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="amount" className="block font-semibold text-black">Amount:</label>
+            <label htmlFor="amount" className="block text-gray-700 font-semibold mb-2">Amount:</label>
             <input
               type="number"
               id="amount"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className="border rounded w-full p-2"
+              className="w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="date" className="block font-semibold text-black">Date:</label>
+            <label htmlFor="date" className="block text-gray-700 font-semibold mb-2">Date:</label>
             <input
               type="date"
               id="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="border rounded w-full p-2"
+              className="w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
             />
           </div>
-          <button onClick={addExpense} className="bg-blue-500 p-2 rounded text-white w-full hover:bg-blue-600">
+          <button
+            onClick={addExpense}
+            className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:ring focus:ring-blue-200"
+          >
             Add Expense
           </button>
         </div>
-      </div>
 
-      <div className="p-4 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3">
-        <h2 className="text-xl font-semibold mb-4 text-blue-500">Expense List</h2>
-        <ul>
-          {expenses.map((expense) => (
-            <li key={expense.id} className="border p-2 rounded mb-2 text-black">
-              <strong>{expense.description}</strong> - ${expense.amount} on {expense.date}
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div className="p-4 bg-gray-100 rounded shadow-md">
+          <h2 className="text-xl font-bold mb-4 text-blue-900">Expense List</h2>
+          <ul>
+            {expenses.map((expense) => (
+              <li key={expense.id} className="mb-2 text-blue-700">
+                <strong>{expense.description}</strong> - ${expense.amount} on {expense.date}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <div className="p-4 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3">
-        <h2 className="text-xl font-semibold text-blue-500">Total Expenses:</h2>
-        <p className="text-black text-xl">${calculateTotal()}</p>
+        <div className="p-4 bg-gray-100 rounded shadow-md">
+          <h2 className="text-xl font-bold mb-2 text-blue-900">Total Expenses:</h2>
+          <p className="text-2xl font-semibold text-blue-700">${calculateTotal()}</p>
+        </div>
       </div>
     </div>
   );
