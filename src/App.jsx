@@ -39,6 +39,7 @@ function App() {
         <div className="text-center mb-4">
           <h1 className="text-3xl font-bold text-blue-600">Expense Tracker</h1>
         </div>
+        <hr class="w-full h-1 mx-auto  bg-gray-100 border-0 rounded  dark:bg-blue-900" />
 
         <div className="p-4">
           <h2 className="text-xl font-bold mb-4 text-blue-900">Add Expense</h2>
