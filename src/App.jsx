@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 
-<<<<<<< HEAD
 function App() {
 
-=======
- function App() {
->>>>>>> cdb009a569d124a3104a77422e688d2bbe0f5364
   const [expenses, setExpenses] = useState([]);
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
