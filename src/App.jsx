@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function App() {
+ App() {
   const [expenses, setExpenses] = useState([]);
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
