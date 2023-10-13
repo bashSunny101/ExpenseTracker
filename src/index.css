@@ -1,6 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.animated-background {
+  background: linear-gradient(-45deg, #0099FF, #7E3FF2, #FF80D2, #FFB125, #00D594);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s infinite alternate;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

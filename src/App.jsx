@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 function App() {
   const [expenses, setExpenses] = useState([]);
   const [description, setDescription] = useState("");
@@ -26,8 +27,8 @@ function App() {
   };
 
   return (
-    <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-screen">
-      <nav className="bg-blue-500 p-4">
+    <div className="animated-background h-screen">
+      <nav className="bg-gradient-to-l from-purple-500 to-blue-500 p-4">
         <div className="container mx-auto flex justify-between items-center">
           <h1 className="text-white text-2xl font-bold">Expense Tracker</h1>
           <div className="hidden md:flex space-x-4">
@@ -67,7 +68,7 @@ function App() {
             />
             <button
               onClick={addExpense}
-              className="bg-blue-500 text-white py-2 px-4 rounded-full w-full hover:bg-blue-700 focus:outline-none"
+              className="bg-blue-500 text-white py-2 px-4 rounded-full w-full hover:bg-blue-700 focus:outline-none transition-all duration-300"
             >
               Add Expense
             </button>
@@ -76,7 +77,10 @@ function App() {
             <h2 className="text-xl font-bold text-blue-600 mb-4">Expense List</h2>
             <ul>
               {expenses.map((expense) => (
-                <li key={expense.id} className="mb-2">
+                <li
+                  key={expense.id}
+                  className="mb-2 transition-all duration-300"
+                >
                   <strong>{expense.description}</strong> - ${expense.amount} on {expense.date}
                 </li>
               ))}
