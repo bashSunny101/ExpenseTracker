@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 
 function App() {
-
   const [expenses, setExpenses] = useState([]);
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
 
   const addExpense = () => {
-
     if (description && amount && date) {
-
       const newExpense = {
         id: expenses.length + 1,
         description,
@@ -21,86 +18,78 @@ function App() {
       setDescription("");
       setAmount("");
       setDate("");
-
     }
-
   };
 
   const calculateTotal = () => {
-
     return expenses.reduce((total, expense) => total + expense.amount, 0);
-
   };
 
   return (
-
-    <div className="bg-gray-100 min-h-screen flex justify-center items-center">
-      <div className="w-full max-w-md p-4 bg-white rounded shadow-md">
-        <div className="text-center mb-4">
-          <h1 className="text-3xl font-bold text-blue-600">Expense Tracker</h1>
-        </div>
-        <hr class="w-full h-1 mx-auto  bg-gray-100 border-0 rounded  dark:bg-blue-900" />
-
-        <div className="p-4">
-          <h2 className="text-xl font-bold mb-4 text-blue-900">Add Expense</h2>
-          <div className="mb-4">
-            <label htmlFor="description" className="block text-gray-700 font-semibold mb-2">Description:</label>
-            <input
-              type="text"
-              id="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              className="w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-            />
+    <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-screen">
+      <nav className="bg-blue-500 p-4">
+        <div className="container mx-auto flex justify-between items-center">
+          <h1 className="text-white text-2xl font-bold">Expense Tracker</h1>
+          <div className="hidden md:flex space-x-4">
+            <a href="#" className="text-white hover:text-blue-300">Home</a>
+            <a href="#" className="text-white hover:text-blue-300">About</a>
+            <a href="#" className="text-white hover:text-blue-300">Contact</a>
           </div>
-          <div className="mb-4">
-            <label htmlFor="amount" className="block text-gray-700 font-semibold mb-2">Amount:</label>
-            <input
-              type="number"
-              id="amount"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              className="w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="date" className="block text-gray-700 font-semibold mb-2">Date:</label>
-            <input
-              type="date"
-              id="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-              className="w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-            />
-          </div>
-          <button
-            onClick={addExpense}
-            className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:ring focus:ring-blue-200"
-          >
-            Add Expense
+          <button className="md:hidden text-white">
+            {/* You can use a mobile menu icon here */}
+            &#9776;
           </button>
         </div>
-
-        <div className="p-4 bg-gray-100 rounded shadow-md">
-          <h2 className="text-xl font-bold mb-4 text-blue-900">Expense List</h2>
-          <ul>
-            {expenses.map((expense) => (
-              <li key={expense.id} className="mb-2 text-blue-700">
-                <strong>{expense.description}</strong> - ${expense.amount} on {expense.date}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="p-4 bg-gray-100 rounded shadow-md">
-          <h2 className="text-xl font-bold mb-2 text-blue-900">Total Expenses:</h2>
-          <p className="text-2xl font-semibold text-blue-700">${calculateTotal()}</p>
+      </nav>
+      <div className="container mx-auto py-8">
+        <div className="bg-white rounded p-8 shadow-md md:w-96 mx-auto">
+          <div>
+            <h1 className="text-2xl font-bold text-blue-600 mb-6">Add an Expense</h1>
+            <input
+              type="text"
+              placeholder="Description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500 mb-4"
+            />
+            <input
+              type="number"
+              placeholder="Amount"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              className="w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500 mb-4"
+            />
+            <input
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className="w-full py-2 px-3 border border-gray-300 rounded focus:outline-none focus:border-blue-500 mb-4"
+            />
+            <button
+              onClick={addExpense}
+              className="bg-blue-500 text-white py-2 px-4 rounded-full w-full hover:bg-blue-700 focus:outline-none"
+            >
+              Add Expense
+            </button>
+          </div>
+          <div className="mt-8">
+            <h2 className="text-xl font-bold text-blue-600 mb-4">Expense List</h2>
+            <ul>
+              {expenses.map((expense) => (
+                <li key={expense.id} className="mb-2">
+                  <strong>{expense.description}</strong> - ${expense.amount} on {expense.date}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="mt-8">
+            <h2 className="text-xl font-bold text-blue-600">Total Expenses:</h2>
+            <p className="text-2xl font-semibold">${calculateTotal()}</p>
+          </div>
         </div>
       </div>
     </div>
-
   );
-  
 }
 
 export default App;
